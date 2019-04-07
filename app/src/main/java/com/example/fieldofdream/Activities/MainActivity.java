@@ -1,9 +1,11 @@
 package com.example.fieldofdream.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.example.fieldofdream.Interface.ItemClickListener;
 import com.example.fieldofdream.R;
@@ -28,11 +30,14 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         menuRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(listOfMenuItem);
         adapter.setItemClickListener(this);
+        //adapter.setClickListener(this);
         menuRecyclerView.setAdapter(adapter);
     }
 
     @Override
     public void onItemClick(String item) {
-
+        Toast.makeText(this,item,Toast.LENGTH_SHORT).show();
+//        Intent goToInGameActivity = new Intent(this,InGameActivity.class);
+//        startActivity(goToInGameActivity);
     }
 }

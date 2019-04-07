@@ -1,6 +1,5 @@
 package com.example.fieldofdream;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -8,10 +7,10 @@ import android.widget.TextView;
 import com.example.fieldofdream.Interface.ItemClickListener;
 
 public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    TextView textViewInMenu;
-    ItemClickListener itemClickListener;
+    public TextView textViewInMenu;
+    static ItemClickListener itemClickListener;
 
-    public ViewHolder(@NonNull View itemView) {
+    public ViewHolder(View itemView) {
         super(itemView);
         textViewInMenu = itemView.findViewById(R.id.menuItem);
         itemView.setOnClickListener(this);
