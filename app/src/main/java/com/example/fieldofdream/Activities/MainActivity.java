@@ -1,11 +1,10 @@
 package com.example.fieldofdream.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.example.fieldofdream.Interface.ItemClickListener;
 import com.example.fieldofdream.R;
@@ -36,8 +35,15 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
     @Override
     public void onItemClick(String item) {
-        Toast.makeText(this,item,Toast.LENGTH_SHORT).show();
-//        Intent goToInGameActivity = new Intent(this,InGameActivity.class);
-//        startActivity(goToInGameActivity);
+        switch (item.toLowerCase()){ //Костыль, но рабочий
+            case "играть":
+                Intent goToInGameActivity = new Intent(this,InGameActivity.class);
+                startActivity(goToInGameActivity);
+                break;
+            case "список лидеров":
+                break;
+            case "настройки":
+                break;
+        }
     }
 }
