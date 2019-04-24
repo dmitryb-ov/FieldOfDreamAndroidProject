@@ -1,13 +1,17 @@
 package com.example.fieldofdream.Activities;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -23,6 +27,7 @@ public class InGameActivity extends AppCompatActivity {
     private TextView textViewDescription;
     private TextView textViewCountOfLetter;
     private TextView textViewHitWord;
+    private TextView event;
 
     private Button addLetterButton;
 
@@ -51,20 +56,40 @@ public class InGameActivity extends AppCompatActivity {
         addLetterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LayoutInflater li = new LayoutInflater.from(context);
-                View promtptView = li.inflate(R.layout.prompt, null);
-
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
-                dialogBuilder.setView(promtptView);
+                dialogBuilder.setTitle("Буква");
+                View promptView = LayoutInflater.from(context).inflate(R.layout.prompt, null);
+                dialogBuilder.setView(promptView);
 
-                final EditText inputText = promtptView.findViewById(R.id.input_text);
+                final EditText inputText = promptView.findViewById(R.id.input_text);
+
 
                 dialogBuilder
                         .setCancelable(false)
                         .setPositiveButton("Ок", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                if(inputText.getText().length() > 1){
 
+                                }
+                                fieldOfDream.letterCheck(inputText.getText().toString());
+                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                builder.setTitle("И так!")
+                                        .setMessage(FieldOfDream.action)
+                                        .setCancelable(false)
+                                        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.cancel();
+                                            }
+                                        });
+//                                if(FieldOfDream.strLet.equals("1")){
+//                                    textViewHitWord.setText("ВЫ ПОБЕДИТЕЛЬ");
+//                                }
+                                textViewHitWord.setText(FieldOfDream.strLet);
+                                textViewHitWord.refreshDrawableState();
+                                AlertDialog alertDialog = builder.create();
+                                alertDialog.show();
                             }
                         })
                         .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
@@ -77,6 +102,20 @@ public class InGameActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
-
+    }
+    public void showDialog(String text) {
+        System.out.println("111111111111111111111111111111111");
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("И так!")
+                .setMessage(text)
+                .setCancelable(false)
+                .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
