@@ -6,10 +6,15 @@ import android.app.Activity;
 import com.example.fieldofdream.Activities.InGameActivity;
 import com.example.fieldofdream.Interface.FieldOfDreamInterface;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PipedOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Pattern;
 
 public class FieldOfDream implements FieldOfDreamInterface {
@@ -18,11 +23,12 @@ public class FieldOfDream implements FieldOfDreamInterface {
     public static String hitWord;
     public static String[] arrHitWord;
     public static int hitWordCount = 0;
-    private int POINT = 0;
     public static String strLet;
-
     public static String action = "";
+    public static String events = "";
+    public static int POINT = 0;
 
+    private int fileCounter = 0;
 
     //    private TextView textViewDescription;
 //    private TextView textViewCountOfLetter;
@@ -30,18 +36,23 @@ public class FieldOfDream implements FieldOfDreamInterface {
     @SuppressLint("SetTextI18n")
     @Override
     public void startGame() {
-        description = "text";
-        WORD = "Текст";
-        hitWord = "";
-        for (int i = 0; i < WORD.length(); i++) {
-            hitWord += "*";
-            hitWordCount++;
-        }
-        arrHitWord = hitWord.split("");
+//            Random random = new Random(descriptionMas.length);
+//            description = descriptionMas[random.nextInt()];
+//            description = "TEXTTT";
+//            WORD = "Текст";
+//            hitWord = "";
+//            for (int i = 0; i < WORD.length(); i++) {
+//                hitWord += "*";
+//                hitWordCount++;
+//            }
+//            arrHitWord = hitWord.split("");
     }
 
     @Override
     public void letterCheck(String letter) {
+        if (letter.length() > 1) {
+            action = "Введите одну букву";
+        }
         System.out.println("2222222222222222");
         if (Pattern.compile("[а-я]").matcher(letter.toLowerCase()).matches()) {
             System.out.println("2222222222222222");
@@ -50,9 +61,9 @@ public class FieldOfDream implements FieldOfDreamInterface {
                 try {
                     strLet = openLetter(letter).replaceAll("[,\\[\\]]", "");
                     if (strLet.equals("1")) {
-                        //mes
+                        action = "ПОБЕДИТЕЛЬ";
                     } else {
-                        //mes
+                        action = "Верно, откройте букву";
                         int randomNumber = randomPoint();
                         //int randomNumber = 0;
                         switch (randomNumber) {
@@ -81,7 +92,7 @@ public class FieldOfDream implements FieldOfDreamInterface {
     }
 
     private List<String> letterMemory = new ArrayList<>();
-    private int casketCounter = 0;
+    public static int casketCounter = 0;
 
     @Override
     public String openLetter(String letter) {
@@ -96,10 +107,11 @@ public class FieldOfDream implements FieldOfDreamInterface {
             for (int i = 0; i < arrWord.length; i++) {
                 if (arrWord[i].equals(letter)) {
                     arrHitWord[i] = letter;
-                    casketCounter++;
-                    if (casketCounter == 3) {
-                        //шкалутка
-                    }
+//                    casketCounter++;
+//                    if (casketCounter == 3) {
+//                        events = "Три верно угаданные буквы дает вам право на три шкатулки\n" +
+//                                "Три шкатулки в студию!";
+//                    }
                 }
             }
             for (int i = 0; i < arrWord.length; i++) {
@@ -127,8 +139,20 @@ public class FieldOfDream implements FieldOfDreamInterface {
     }
 
     @Override
-    public void casket() {
-
+    public int casket(int number) {
+        return 0;
+//        Random randomCasket = new Random();
+//        int randomPointForCasket = randomPoint();
+//        int fieldRandomCasket = randomCasket.nextInt(4);
+//        if (fieldRandomCasket == 0) {
+//            return casket(number);
+//        } else if (number == fieldRandomCasket) {
+//            POINT += randomPointForCasket;
+//            events = "Поздравляю, вы получили " + randomPointForCasket + " очков";
+//        } else {
+//            events = "К сожалению, вы не угадали, очки были в шкатулке под номером: " + fieldRandomCasket;
+//        }
+//        return 0;
     }
 
 

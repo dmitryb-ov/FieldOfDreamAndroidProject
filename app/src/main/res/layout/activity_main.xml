@@ -1,27 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBack"
+    android:theme="@android:style/Theme.Black.NoTitleBar"
     tools:context=".Activities.MainActivity">
 
-    <ScrollView
-        android:layout_width="395dp"
-        android:layout_height="715dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints">
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:background="@null"
+        android:src="@drawable/setttings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/leaderButton"
+        android:layout_width="68dp"
+        android:layout_height="62dp"
+        android:background="@null"
+        android:src="@drawable/leaderboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="216dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="40dp"
+        android:background="@null"
+        android:src="@drawable/play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/mainMenu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+    <ImageView
+        android:id="@+id/textImage"
+        android:layout_width="403dp"
+        android:layout_height="209dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="28dp"
+        android:src="@drawable/text"
+        app:layout_constraintBottom_toTopOf="@+id/playButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+    <!--<ScrollView-->
+        <!--android:layout_width="395dp"-->
+        <!--android:layout_height="715dp"-->
+        <!--tools:layout_editor_absoluteX="8dp"-->
+        <!--tools:layout_editor_absoluteY="8dp"-->
+        <!--tools:ignore="MissingConstraints">-->
 
-        </RelativeLayout>
-    </ScrollView>
+        <!--<RelativeLayout-->
+            <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/mainMenu"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"/>-->
+
+        <!--</RelativeLayout>-->
+    <!--</ScrollView>-->
 </android.support.constraint.ConstraintLayout>

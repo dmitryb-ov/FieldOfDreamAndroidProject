@@ -5,5 +5,5 @@ public interface FieldOfDreamInterface {
     void letterCheck(String letter);
     String openLetter(String letter);
     int randomPoint();
-    void casket();
+    int casket(int number);
 }
