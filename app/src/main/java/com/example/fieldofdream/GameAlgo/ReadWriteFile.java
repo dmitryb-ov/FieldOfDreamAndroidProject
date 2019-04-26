@@ -15,11 +15,11 @@ import android.util.Log;
 public class ReadWriteFile extends Activity {
     private static final String LOG_TAG = "myLogs";
 
-    void writeFile(){
+    public void writeFile(int point){
         try {
             Context context = getApplicationContext();
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(context.openFileOutput("file",MODE_PRIVATE)));
-            bw.write("hi");
+            bw.write(""+point);
             bw.close();
             Log.d(LOG_TAG, "Файл записан");
         } catch (FileNotFoundException e) {

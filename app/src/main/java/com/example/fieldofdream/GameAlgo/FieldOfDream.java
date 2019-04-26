@@ -27,6 +27,7 @@ public class FieldOfDream implements FieldOfDreamInterface {
     public static String action = "";
     public static String events = "";
     public static int POINT = 0;
+    public static boolean winner = false;
 
     private int fileCounter = 0;
 
@@ -60,8 +61,9 @@ public class FieldOfDream implements FieldOfDreamInterface {
                 System.out.println("2222222222222222");
                 try {
                     strLet = openLetter(letter).replaceAll("[,\\[\\]]", "");
-                    if (strLet.equals("1")) {
+                    if (strLet.equals("ПОБЕДИТЕЛЬ")) {
                         action = "ПОБЕДИТЕЛЬ";
+                        winner = true;
                     } else {
                         action = "Верно, откройте букву";
                         int randomNumber = randomPoint();
@@ -118,7 +120,7 @@ public class FieldOfDream implements FieldOfDreamInterface {
                 if (arrHitWord[i].equals(arrWord[i])) {
                     letterCounter++;
                     if (letterCounter == arrWord.length) {
-                        return "1";
+                        return "ПОБЕДИТЕЛЬ";
                     }
                 }
             }

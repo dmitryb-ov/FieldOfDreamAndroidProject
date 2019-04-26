@@ -7,17 +7,30 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/small_logo"
         android:label="Поле-чудес"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.AboutDevelopers"></activity>
-        <activity android:name=".Activities.Settings" />
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".Activities.InGameActivity" />
-        <activity android:name=".Activities.MainActivity">
+        <activity
+            android:name=".Activities.Leaders"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".Activities.AboutDevelopers"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.Settings"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.InGameActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activities.MainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +38,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameAlgo.ReadWriteFile" />
+
+        <service
+            android:name=".MyPlayer"
+            android:enabled="true" />
+
         <activity android:name=".GameAlgo.FieldOfDream" />
     </application>
 

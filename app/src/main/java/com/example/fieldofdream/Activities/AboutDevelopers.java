@@ -14,8 +14,8 @@ public class AboutDevelopers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE);
+//        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+//        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE);
         setContentView(R.layout.activity_about_developers);
     }
 }

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.fieldofdream.Interface.ItemClickListener;
+import com.example.fieldofdream.MyPlayer;
 import com.example.fieldofdream.R;
 import com.example.fieldofdream.RecyclerViewAdapter;
 
@@ -24,8 +25,9 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE);
+//        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+//        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE);
+        //startService(new Intent(this, MyPlayer.class));
         setContentView(R.layout.activity_main);
 
         ImageButton play = findViewById(R.id.playButton);
@@ -51,7 +53,8 @@ public class MainActivity extends AppCompatActivity{
         leaders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this,Leaders.class);
+                startActivity(intent);
             }
         });
     }
